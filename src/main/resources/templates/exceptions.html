@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Memenergy!</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
+    <link href="/css/responsive.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/assets/ico/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+        function deleteException(id){
+            var request = new XMLHttpRequest();
+            request.responseType = "json"
+            var url = "/api/error/"+id;
+            request.open("Delete",url);
+            request.addEventListener("load",function (){
+                alert(request.status==200?"Exception deleted":"Failed deletion")
+            })
+            request.send();
+        }
+    </script>
+</head>
+
+
+<body id=layout>
+{{>header}}
+<div id="container">
+    {{#errors}}
+        <ul>
+            <li>Date-Time: {{#dateTime}}{{dateToString}}{{/dateTime}}</li>
+            <li>Class name:
+                {{#name}}
+                <ul>
+                    <li>{{.}}</li>
+                </ul>
+                {{/name}}
+            </li>
+            <li>Message:
+                {{#message}}
+                <ul>
+                    <li>{{.}}</li>
+                </ul>
+                {{/message}}
+            </li>
+            {{#userLogged}}<li>User logged when error: <a href="/user/{{username}}">{{username}}</a> </li>{{/userLogged}}
+            <li>Status Code: {{statusCode}}</li>
+            <li>Error: {{error}}</li>
+            <li>Path: <a href="{{path}}">{{path}}</a></li>
+            <li>Stack trace: </li>
+            <li class="stackTrace">
+                {{#stackTrace}}
+                <ul>
+                    <li class="stackTrace">{{.}}</li>
+                </ul>
+                {{/stackTrace}}
+            </li>
+            <br>
+            <button class="button-action" onclick="javascript:deleteException({{id}})">Delete exception</button>
+        </ul>
+        <br>
+        <br>
+        <br>
+    {{/errors}}
+
+
+</div>
+
+
+</body>
+
+</html>

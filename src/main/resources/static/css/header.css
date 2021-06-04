@@ -1,0 +1,267 @@
+/*
+  Theme Name: Triangle
+  Theme Uri: https://designscrazed.org/
+  Author: Allie
+  Author Uri: https://designscrazed.org/
+  Description: Creative Site Template
+  Version: 1.1
+  */
+
+  @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700);
+
+
+  body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 22px;
+    color: #000;
+  }
+
+  html {
+    height: 100%;
+  }
+
+
+  a{
+    color:#C03035;
+  }
+
+  a:hover {
+    outline: none;
+    text-decoration:none;
+    color:#4fcccd;
+  }
+
+  a:focus {
+    outline:none;
+    outline-offset: 0;
+  }
+
+  a {
+    -webkit-transition: 300ms;
+    -moz-transition: 300ms;
+    -o-transition: 300ms;
+    transition: 300ms;
+  }
+
+
+  ul {
+    list-style: none;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+  }
+
+  h1{
+    color: #686868;
+  }
+
+  h2{
+    font-size: 24px;
+    color: #686868;
+  }
+
+  h3{
+    font-size: 18px;
+  }
+
+  .overflow{
+    overflow: hidden;
+  }
+
+  .uppercase{
+    text-transform: uppercase;
+  }
+
+  .btn-common {
+    font-size: 14px;
+    color: #0099ae;
+    border: 1px solid #0099ae;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    padding: 10px 25px;
+  }
+
+  #action .col-sm-5{
+    position: absolute;
+
+    top: 0;
+    height: 100%;
+    right: 0;
+  }
+
+
+  .btn-common:hover, 
+  .btn-common:focus{
+    outline: none;
+    background: none;
+    box-shadow: none;
+    color: #1ec3ff;
+    border-color:#1ec3ff;
+  }
+
+  .align-right{
+    text-align: right;
+  }
+
+  .inline{
+    display: inline-block;
+  }
+
+  .padding{
+    padding: 65px 0;
+  }
+
+  .padding-bottom{
+    padding-bottom: 65px;
+  }
+
+  .padding-top{
+    padding-top: 90px;
+  }
+
+  .padding-right{
+    padding-right: 80px;
+  }
+
+  .padding-left{
+    padding-left: 80px;
+  }
+
+  .margin-bottom{
+    margin-bottom: 35px;
+  }
+
+     .carousel-indicators.visible-xs {
+      height: 20px;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: -35px;
+      width: 100%;
+      left: 0;
+    }
+
+  .carousel-indicators.visible-xs li {
+    border-color: #D29948;
+    border-width: 2px;
+    height: 12px;
+    margin: 0 5px 0 0;
+    width: 12px;
+  }
+
+  .carousel-indicators.visible-xs li.active {
+    background: rgba(210, 153, 72, 0.7);
+  }
+
+
+/*************************
+*******Header******
+**************************/
+
+
+#header{
+  margin-bottom: 0;
+  padding: 30px 0 60px 0;
+}
+
+#header .navbar-inverse .container{
+  position: relative;
+}
+
+
+#header .navbar {
+  background: #fff;
+  border: 0;
+  margin-bottom: 0;
+}
+
+#header .navbar-toggle{
+  margin-top: 20px;
+}
+
+#header .navbar-brand{
+  padding: 0;
+  margin-left: 0;
+}
+
+#header .navbar-brand h1{
+  padding: 0;
+  margin: 0;
+}
+
+#header .navbar-nav.navbar-right >li:last-child{
+  margin-right: 20px;
+}
+
+#header .navbar-nav.navbar-right >li a {
+  color: #000;
+  font-size: 12px;
+  padding: 20px;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+
+#header .navbar-inverse .navbar-nav  li.active > a,  
+#header .navbar-inverse .navbar-nav  li.active > a:focus, 
+#header .navbar-nav.navbar-right li > a:hover,
+.navbar-inverse .navbar-nav > .open > a {
+  background-color: inherit;
+  border: 0;
+  color: #00aeef;
+}
+
+#header .navbar-inverse .navbar-nav  li a:hover{
+  color: #00aeef;
+}
+
+
+/*  Dropdown menu*/
+
+ul.sub-menu {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#header .navbar-nav li ul.sub-menu li a{
+  color: #818285;
+  padding: 5px 0;
+  font-size: 13px;
+  display: block;
+  text-transform: capitalize;
+}
+
+#header .navbar-nav li ul.sub-menu li .active{
+  background: #00aeef;
+  color: #fff;
+  position: relative;
+}
+
+#header .navbar-nav li ul.sub-menu li .active i{
+  position: absolute;
+  font-size: 56px;
+  top: -13px;
+  color: #0884d5;
+}
+
+#header .navbar-nav li ul.sub-menu li .active .fa-angle-right{
+  left: -3px;
+}
+
+#header .navbar-nav li ul.sub-menu li .active .fa-angle-left{
+  right: -3px;
+}
+
+#header .navbar-nav li ul.sub-menu li a:hover,
+#header .navbar-nav li ul.sub-menu li a:focus{
+  background: #00aeef;
+  color: #fff;
+}
+
+

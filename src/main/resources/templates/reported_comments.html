@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Memenergy</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
+    <link href="/css/responsive.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/assets/ico/favicon.ico" type="image/x-icon">
+</head>
+
+
+<body id="layout">
+{{>header}}
+<section id="main-buttons">
+
+
+</section>
+
+
+<div id="container">
+
+
+    <div class="reported-comments-box">
+        <ul id="reported-comments">
+            {{#comments}}
+            <li>{{#hasUserCreator}}<a href="/profile/{{userCreator.username}}">{{userCreator.username}}</a>{{/hasUserCreator}}{{#notHasUserCreator}}[deleted]{{/notHasUserCreator}} {{date.dateToString}}</li>
+            <li><a href="/comment/{{id}}/reports">Reports:</a> {{reportCounter}}</li>
+            <li>{{{text}}}</li>
+            <li><a href="/post/{{relatedPost.id}}">Link to related post</a></li>
+            <li><a href="/comment/{{id}}">Link to comment</a></li>
+            {{/comments}}
+        </ul>
+
+    </div>
+
+
+    <div class="num-page">
+
+        <td>
+        <th> {{#firstPage}}<a href="{{previousPage}}">{{/firstPage}} Previous page </a></th>
+        <th> {{page}}</th>
+        <th> {{#lastPage}}<a href="{{nextPage}}">{{/lastPage}} Next page </a></th>
+        </td>
+
+    </div>
+
+
+</div>
+
+
+</body>
+</html>

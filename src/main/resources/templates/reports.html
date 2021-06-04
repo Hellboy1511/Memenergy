@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Memenergy</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
+    <link href="/css/responsive.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/assets/ico/favicon.ico" type="image/x-icon">
+</head>
+
+
+<body id="layout">
+{{>header}}
+<section id="main-buttons">
+
+
+</section>
+
+
+<div id="container">
+
+
+    <div class="post-reported-box">
+        {{#reports}}
+        <ul id="reported-post">
+
+            <li><strong>Link to reported </strong><a href="/{{tipo}}/{{id.id}}">{{tipo}}</a></li>
+            <li><strong>Reported by </strong><a href="/user/{{getUsername.username}}">{{getUsername.username}}</a>  {{date.dateToString}}</li>
+            </br>
+
+            <li><strong>Reason: </strong></br>{{reason}}</li>
+            </br>
+
+        </ul>
+        {{/reports}}
+    </div>
+
+
+    <div class="num-page">
+
+        <td>
+        <th> {{#firstPage}}<a href="{{previousPage}}">{{/firstPage}} Previous page </a></th>
+        <th> {{page}}</th>
+        <th> {{#lastPage}}<a href="{{nextPage}}">{{/lastPage}} Next page </a></th>
+        </td>
+
+    </div>
+
+
+</div>
+
+
+</body>
+</html>

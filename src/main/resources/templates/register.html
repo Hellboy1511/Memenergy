@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Memenergy / Register</title>
+    <script src="/scripts.js"></script>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
+    <link href="/css/responsive.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/assets/ico/favicon.ico" type="image/x-icon">
+</head>
+
+
+<body id="layout">
+{{>header}}
+<section id="main-buttons">
+
+
+</section>
+
+
+<div id="container">
+    <div id="register-error">
+        {{#emailTaken}}
+        <p style="color:red"> Email is already taken, try again </p>
+        {{/emailTaken}}
+
+        {{#usernameTaken}}
+        <p style="color:red"> Username is already taken, try again </p>
+        {{/usernameTaken}}
+    </div>
+
+
+    <div class="register-form">
+        <form name="register-form" action="/user"
+              class="form" method="post">
+
+        <div class="form-fieldset">
+            <label class="form-label">Email </label> <input type="email"
+                                                            name="email" id="profile-edit-input" class="form-input"
+                                                            required maxlength="255">
+        </div>
+        </br>
+
+        <div class="form-fieldset">
+            <label class="form-label">Username </label> <input type="text"
+                                                               name="username" id="profile-edit-input"
+                                                               class="form-input" required maxlength="255">
+
+        </div>
+        </br>
+        <div class="form-fieldset">
+            <label class="form-label">Password </label> <input type="password"
+                                                               name="password" id="password" class="form-input" required
+                                                               onkeyup='check();'
+                                                               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                                               title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"
+                                                               >
+        </div>
+        </br>
+
+        <div class="form-fieldset">
+            <label class="form-label">Repeat your password </label> <input type="password"
+                                                                           name="confirm_password" id="confirm_password"
+                                                                           class="form-input" required
+                                                                           onkeyup='check();'
+                                                                           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                                                           >
+        </div>
+        </br>
+        <input type="checkbox" onclick="showPassword()">Show Password
+
+        </br> </br>
+        <input type="hidden" name="_csrf" value="{{token}}">
+        <input class="button-action" type="submit" value="Sign up" id="register_button">
+        <span id='message'></span>
+
+        </form>
+    </div>
+
+
+    <img id="register-gif" src="/assets/gifs/pepe.gif">
+    <img id="register-gif1" src="/assets/gifs/boca_90px1.gif">
+    <img id="register-gif2" src="/assets/gifs/campana_60px1.gif">
+    <img id="register-gif3" src="/assets/gifs/gusano_60px1.gif">
+    <img id="register-gif4" src="/assets/gifs/jebusDance.gif">
+    <img id="register-gif5" src="/assets/gifs/reloj_30px1.gif">
+    <img id="register-gif6" src="/assets/gifs/reloj_60px1.gif">
+    <img id="register-gif7" src="/assets/gifs/tostadora_100px1.gif">
+
+
+</div>
+</body>
+
+</html>

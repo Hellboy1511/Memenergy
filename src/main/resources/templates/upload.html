@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Memenergy! / Upload</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/main.css" rel="stylesheet">
+	<link href="/css/header.css" rel="stylesheet">
+	<link href="/css/responsive.css" rel="stylesheet">
+	<link rel="shortcut icon" href="/assets/ico/favicon.ico" type="image/x-icon">
+</head>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</head>
+
+<body id="layout">
+{{>header}}
+	<div id="container">
+	<h3 style="font-family:'Lobster';">Send us a meme <3</h3>
+		<div id="upload-ornament-image">
+	<img id="ornament-image-upload" src="https://i.pinimg.com/originals/fd/6f/2a/fd6f2ad135d91acd63672ee56e786c7a.png">
+</div>
+	<div id="upload-form">
+		<form action='/post' class="form"  method="post" enctype="multipart/form-data">
+
+
+			</br>
+
+			<div class="form-fieldset">
+				<label class="form-label">Title</label>
+				<input type="text" name="title" id="input-upload-post"
+					class="form-input" required maxlength="255">
+			</div>
+			</br>
+
+
+			<div class="form-fieldset">
+				<label class="form-label">File</label>
+				<input  type="file" name="file"
+					 required accept="image/*" max-size="10000">
+			</div>
+			</br>
+			
+			<div class="form-fieldset">
+				<label class="form-label">Description</label>
+				<textarea id="input-upload-post" name='description' rows=5 cols=40 id="text-area" maxlength="1024"></textarea>
+				
+			</div>
+			</br>
+
+			<input type="hidden" name="_csrf" value="{{token}}">
+			<input type="submit" class="button" value="Publish">
+
+
+		</form>
+	</div>
+
+
+
+
+
+
+	</div>
+
+	<!-- end container -->
+
+
+
+</body>
+</html>

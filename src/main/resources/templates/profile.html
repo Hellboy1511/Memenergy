@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Profile</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
+    <link href="/css/responsive.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/assets/ico/favicon.ico" type="image/x-icon">
+    <script src="/scripts.js"></script>
+</head>
+
+
+</head>
+
+<body id="layout">
+{{>header}}
+
+<div id="container">
+    <h1>{{username}}</h1>
+    <div class="profile-block">
+        <div>
+            <a> <img class="avatar" src="/api/user/{{username}}/image">
+            </a>
+        </div>
+
+        </br>
+        <ul>
+            {{#isMyProfile}}
+            <li><a class="button-action" href="/myprofile/edit">Edit profile </a></li>
+            {{/isMyProfile}}
+            <li><a class="button-action" href="/user/{{username}}/posts">Posts</a></li>
+            {{#isNotMyProfile}}
+            {{#isLogged}}
+            <li>
+                <button class="button-action" onclick="createFollow('{{username}}');">Follow</button>
+                <input type="hidden" id="exists" value="{{exists}}">
+            </li>
+            {{/isLogged}}
+            {{/isNotMyProfile}}
+            <li><a class="button-action" href="/user/{{username}}/followers/">Followers</a></li>
+            <li><a class="button-action" href="/user/{{username}}/following/">Following</a></li>
+        </ul>
+
+    </div>
+
+    <div class="profile-description">
+
+        <p>Email: {{email}}</p>
+        <p>Description: {{description}}</p>
+        <p>Birth date: {{#date}}{{dateToStringNoHour}}{{/date}}</p>
+        <p>Country: {{country}}</p>
+
+    </div>
+</div>
+</body>
+</html>

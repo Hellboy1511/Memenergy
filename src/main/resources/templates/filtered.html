@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Memenergy</title>
+    <script src="/scripts2.js"></script>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
+    <link href="/css/responsive.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/assets/ico/favicon.ico"
+          type="image/x-icon">
+
+</head>
+
+
+<body id="layout">
+{{>header}}
+<section id="main-buttons"></section>
+
+
+<div id="container">
+
+
+    <h3><strong>Search a {{type}}:</strong></h3>
+    {{#user}}
+    <input id='filter-string' type='text' placeholder="Search by username">
+    {{/user}}
+
+    {{#post}}
+    <input id='filter-string' type='text' placeholder="Search by title">
+    <input style="width: 30%" id='filter-long' type='number' placeholder="Minimum number of likes (zero if blank)">
+    {{/post}}
+    </br>    </br>
+
+
+    <button class="button-action" onclick='search("{{type}}");'>Search</button>
+
+    <div class="post-box">
+        <ul id='results'>
+
+
+        </ul>
+    </div>
+
+    <button hidden id="load-more-button" class="button-load-more" onclick='loadMore("{{type}}");'>More {{type}}s
+    </button>
+
+
+</div>
+
+
+</body>
+</html>

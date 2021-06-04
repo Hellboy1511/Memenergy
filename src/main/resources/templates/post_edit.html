@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Memenergy</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
+    <link href="/css/responsive.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/assets/ico/favicon.ico" type="image/x-icon">
+</head>
+
+
+<body id="layout">
+{{>header}}
+<section id="main-buttons">
+
+
+</section>
+
+
+<div id="container">
+
+
+    <ul>
+        <li>User: {{#hasUserCreator}}<a href="/user/{{userCreator.username}}">{{userCreator.username}}</a>{{/hasUserCreator}}{{#notHasUserCreator}}[deleted]{{/notHasUserCreator}} Date: {{date.dateToString}}</li>
+        <li><a href="/post/{{id}}">Post:</a> {{id}}</li>
+        {{#isAdmin}}
+        <li><a href="/post/{{id}}/reports"> Reports:</a> {{reportCounter}}</li>
+        <li>Visibility: {{forcedVisibility}}</li>
+        {{/isAdmin}}
+        <li>Title: {{title}}</li>
+        <li><img id="post-image" src=/api/post/{{id}}/image></li>
+        <li>Description:</li>
+        <li>{{description}}</li>
+    </ul>
+
+    <div id="admin-comment-action">
+        {{#isAdmin}}
+        <form action="/post/{{id}}/forceVisibility" class="form" method="post">
+            <label>Choose an action:</label>
+            <select name="reportAction">
+                <option value="0">Default</option>
+                <option value="1">Visible</option>
+                <option value="-1">Hide</option>
+
+            </select>
+            <input type="hidden" name="_csrf" value="{{token}}">
+            <input class="button-action" type="submit" value="Change Forced Visibility">
+        </form>
+        {{/isAdmin}}
+    </div>
+    {{#isUserOwner}}
+    <div id="edit-post-form">
+
+        <form action="/post/{{id}}/edit" class="form" id="post-form" method="post">
+
+
+            <div class="form-fieldset">
+                <label class="form-label">Title</label>
+                <input type="text" name="title" id="input-upload-post"
+                       class="form-input" placeholder="Rewrite the title of your post" value="{{title}}" maxlength="255">
+            </div>
+            </br>
+            <div class="form-fieldset">
+                <label class="form-label">Description</label>
+                <textarea placeholder="Rewrite the description of your post" name='description' rows=5 cols=40
+                          id="comment-input" maxlength="1024">{{description}}</textarea>
+
+            </div>
+            <input type="hidden" name="_csrf" value="{{token}}">
+            <input class="button-action" type="submit" value="Update">
+        </form>
+    </div>
+
+    {{/isUserOwner}}
+
+
+</div>
+
+
+</body>
+</html>

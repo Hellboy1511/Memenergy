@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Memenergy!</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
+    <link href="/css/responsive.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/assets/ico/favicon.ico" type="image/x-icon">
+    <script>
+
+        function redirect() {
+
+            window.location.href = "{{url}}";
+
+        }
+
+
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+</head>
+
+<body id=layout onload="redirect()">
+{{>header}}
+<div id="container">
+
+
+    <div id="redirect-message">
+        <p> You are being redirected. </p>
+        <p> In case you have not been redirected in 5 seconds click <a href="{{url}}">here</a></p>
+    </div>
+
+
+</div>
+
+
+</body>
+
+</html>

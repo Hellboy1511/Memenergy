@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Edit Profile</title>
+<script src="/scripts.js"></script>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/main.css" rel="stylesheet">
+	<link href="/css/header.css" rel="stylesheet">
+	<link href="/css/responsive.css" rel="stylesheet">
+	<link rel="shortcut icon" href="/assets/ico/favicon.ico" type="image/x-icon">
+</head>
+</head>
+
+<body id="layout">
+{{>header}}
+	
+
+	<div class="profile-container" id="container">
+
+		<form action="/myprofile/edit" class="form profile-edit-form" method="post" enctype="multipart/form-data">
+
+
+			<div class="form-fieldset">
+				<label class="form-label">Email </label>
+				<input type="text" name="email" id="profile-edit-input"
+					class="form-input" value="{{email}}" maxlength="255">
+			</div>
+			</br>
+
+
+			
+			
+			<div class="form-fieldset">
+				<label class="form-label">Bio </label>
+				<textarea  placeholder="Tell us a little bit about yourself" name='description' height="10%" id="profile-edit-input" maxlength="1024">{{description}}</textarea>
+				
+			</div>
+			</br>
+
+			
+			
+			
+			<div class="form-fieldset">
+				<label class="form-label">Birth Date </label>
+				<input type="date" name="birthDate" id="profile-edit-input"
+					class="form-input" >
+			</div>
+			</br>
+			
+
+
+			<div class="form-fieldset">
+				<label class="form-label">Country </label>
+				<input type="text" name="country" id="profile-edit-input"
+					class="form-input" value="{{country}}" maxlength="255">
+			</div>
+			
+			</br>
+
+			<div class="form-fieldset">
+				<label class="form-label">Avatar</label>
+				<input  type="file" name="image" accept="image/*" max-size="10000" >
+			</div>
+			</br>
+			<div class="form-fieldset">
+				<label class="form-label">Password </label> <input type="password"
+					name="password" id="password"  class="form-input"onkeyup='check();' pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+ title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters">
+				
+			</div>
+			</br>
+
+			<div class="form-fieldset">
+				<label class="form-label">Repeat your password </label> <input type="password"
+					 name="confirm_password" id="confirm_password" 
+					class="form-input" onkeyup='check();' pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" >
+			</div>
+</br>
+			<input type="checkbox" onclick="showPassword()">Show Password
+			<input type="hidden" name="_csrf" value="{{token}}">
+			<input class="button-action" type="submit" value="Update">
+			<span id='message'></span>
+	
+		</form>
+
+
+		<div class="profile-edit-avatar">
+		
+		<ul>
+		
+		<li> <p>Profile picture</p></li>
+		<li><img src="/api/user/{{username}}/image" id="edit-avatar"> </li>
+		
+		</li>
+		</ul>
+		
+		</div>
+		
+			<p id="profile-optional-info">All of the fields of this page are optional and can be deleted at any time, and by filling them out, you're giving us consent to share this data (except the password) wherever your user profile appears.</p>
+
+		
+
+
+	</div>
+
+	<!-- end container -->
+
+
+
+</body>
+</html>

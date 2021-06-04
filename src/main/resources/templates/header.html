@@ -1,0 +1,88 @@
+<header id="header">
+    {{#isLogged}}
+    <script>
+        function logout(){
+            if(confirm('Are oyu sure you want to log out?')){
+                document.getElementById("logout").submit();
+            }
+        }
+    </script>
+    {{/isLogged}}
+    <div class="navbar navbar-inverse" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" href="/">
+                    <h1><img src="/assets/elements/logo.png" alt="logo"></h1>
+                </a>
+
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="/">Home</a></li>
+                    <li class="dropdown"><a>Users <i class="fa fa-angle-down"></i></a>
+                        <ul role="menu" class="sub-menu">
+
+                            <li><a href="/users">Users list</a></li>
+                            <li><a href="/users/filtered">Search users</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a>Profile <i class="fa fa-angle-down"></i></a>
+                        <ul role="menu" class="sub-menu">
+                            {{#isLogged}}
+                            <li><a href="/myprofile">My profile</a></li>
+                            <li><a href="/myprofile/edit">Edit profile</a></li>
+                            <li><a href="/user/{{loggedUser}}/posts">My posts</a></li>
+                            <li><a href="/user/{{loggedUser}}/followers">My followers</a></li>
+                            <li><a href="javascript:logout()" >Logout</a></li>
+                            <form method="post" action="/logout" id="logout">
+                                <input type="hidden" name="_csrf" value="{{token}}">
+                            </form>
+                            {{/isLogged}}
+                            {{#isNotLogged}}
+                            <li><a href="/login">Login</a></li>
+                            {{/isNotLogged}}
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a>Post <i class="fa fa-angle-down"></i></a>
+                        <ul role="menu" class="sub-menu">
+                            <li><a href="/posts/filtered">Search a post</a></li>
+                            {{#isLogged}}
+                            <li><a href="/post">Upload a post</a></li>
+                            {{/isLogged}}
+                            {{#isNotLogged}}
+                            <li><a href="/login">Login</a></li>
+                            {{/isNotLogged}}
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a>About <i class="fa fa-angle-down"></i></a>
+                        <ul role="menu" class="sub-menu">
+                            <li><a href="/about">About us</a></li>
+
+                        </ul>
+                    </li>
+                    {{#isAdmin}}
+                    <li class="dropdown"><a>Moderation <i class="fa fa-angle-down"></i></a>
+                        <ul role="menu" class="sub-menu">
+                            <li><a href="/posts/reported">Reported Posts</a></li>
+                            <li><a href="/comments/reported">Reported Comments</a></li>
+
+                        </ul>
+                    </li>
+                    {{/isAdmin}}
+                    {{#isExceptionHandler}}
+                    <li class="active"><a href="/errors">Exception Log <i class="fa fa-angle-down"></i></a> </li>
+                    {{/isExceptionHandler}}
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>

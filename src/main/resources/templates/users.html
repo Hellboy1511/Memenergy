@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Memenergy</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
+    <link href="/css/responsive.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/assets/ico/favicon.ico" type="image/x-icon">
+</head>
+
+
+<body id="layout">
+{{>header}}
+<section id="main-buttons">
+
+
+</section>
+
+
+<div id="container">
+
+    {{#followers}}
+    <h3><strong><a href="/user/{{user}}">{{user}}</a> followers:</strong></h3>
+    {{/followers}}
+
+    {{#following}}
+    <h3><strong><a href="/user/{{user}}">{{user}}</a> is following:</strong></h3>
+    {{/following}}
+    {{#userList}}
+    <h3><strong>User list:</strong></h3>
+    {{/userList}}
+    <div class="followers-box">
+        {{#users}}
+        <ul id="post">
+
+            <li><a href="/user/{{username}}"><h3>{{username}}</h3></a></li>
+            <li><img class="user-list-image" src="/api/user/{{username}}/image"></li>
+
+            </br>
+
+
+        </ul>
+        {{/users}}
+    </div>
+    {{#notLikes}}
+
+    <div class="num-page">
+
+        <td>
+        <th> {{#firstPage}}<a href="{{previousPage}}">{{/firstPage}} Previous page </a></th>
+        <th> {{page}}</th>
+        <th> {{#lastPage}}<a href="{{nextPage}}">{{/lastPage}} Next page </a></th>
+        </td>
+
+    </div>
+    {{/notLikes}}
+
+</div>
+
+
+</body>
+</html>

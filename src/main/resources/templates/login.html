@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Memenergy / Login</title>
+    <script src="/scripts.js"></script>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
+    <link href="/css/responsive.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/assets/ico/favicon.ico" type="image/x-icon">
+</head>
+
+
+<body id="layout">
+{{>header}}
+<section id="main-buttons">
+
+
+</section>
+
+
+<div id="container">
+
+
+    <img id="welcome-image" src="https://media.tenor.com/images/be263d25c9be00a0e2a56a9310756bba/tenor.png">
+    </br>
+
+
+    <div class="login-form">
+        <form name="register-form" action="/login"
+              class="form" method="post">
+
+
+            <div class="form-fieldset">
+                <label class="form-label">Username </label> <input type="text"
+                                                                   name="username" id="profile-edit-input"
+                                                                   class="form-input" required max-lenght="255">
+
+            </div>
+            </br>
+            <div class="form-fieldset">
+                <label class="form-label">Password </label> <input type="password"
+                                                                   name="password" id="password" class="form-input"
+                                                                   required>
+            </div>
+            </br>
+
+            </br>
+            <input type="checkbox" onclick="showPassword()"> Show Password
+
+
+            </br> </br>
+            <input type="hidden" name="_csrf" value="{{token}}">
+            <input class="button-action" type="submit" value="Login" id="login_button">
+
+
+        </form>
+    </div>
+
+
+    <div id="not-registered">
+        <p>Not registered? Join us</p>
+        <img id="not-registered-image"
+             src="https://i.pinimg.com/originals/a1/a9/bc/a1a9bc4049f76db17230711356c362de.jpg">
+
+        <div id="not-registered-button">
+            <a href="/register">
+                <button class="button-action" type="button">Register</button>
+            </a>
+
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

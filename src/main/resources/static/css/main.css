@@ -1,0 +1,483 @@
+  @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700);
+
+ul {
+	list-style: none;
+}
+
+
+a {
+	text-decoration: none;
+}
+
+textarea {
+   resize: none;
+}
+#layout{
+background-image: url("assets/background/fondo.jpg");
+}
+
+#container {
+    clear: both;
+    width: 1080px;
+    height: auto;
+    margin: 10px auto;
+    background: #ffffff;
+    padding: 100px;
+	position:relative;
+	
+}
+
+.avatar {
+	width: 80%;	
+	padding: 0;
+}
+
+.button-action{
+	font-family: 'Lato', sans-serif;
+	display:table; /*inline-block;*/
+	margin-bottom: 4px;
+	/*margin: 4px 2px; /*botones separados*/
+	/*Botones pegados: eliminas margen y pones float: left*/
+	border: 1px solid rgba(0,0,0,0.2); /*none*/
+	border-radius:4px; /*redondeado*/
+	background-color: #1ec3ff;
+	background: #1ec3ff;	
+	color: #333; /*white*/
+	text-align: center;
+	font-size: 16px;
+	width: auto;
+	padding: 6px 12px; /*15px 32px;*/
+	cursor: pointer; /*icono que adquiere el raton al pasarle por encima*/
+}
+
+.button-action:hover{ /*cambio de estilo al pasarle por encima*/
+background-color: white;
+  color: black;
+  border: 2px solid #1ec3ff;
+  }
+  
+ .button-action:disabled{
+  opacity: 0.6;
+  cursor: not-allowed;
+ }
+	  
+.button {
+  font-family: roboto;
+  background-color: #1ec3ff;
+  border: none; 
+  border-radius:4px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button:hover{ /*cambio de estilo al pasarle por encima*/
+background-color: white;
+  color: black;
+  border: 2px solid #1ec3ff;
+  }
+.disabled{ /*botones desabilitados*/
+opacity: 0.6;
+cursor: not-allowed;
+}
+
+.profile-block {
+	
+	width: 200px;
+	float: left;
+	padding: 15px;
+	
+}
+
+.profile-description{
+	margin-0: auto;
+	margin-bottom: 80px;
+	height: 300px;
+}
+
+.profile-edit-form{
+	top: 30px;
+	width: 50%;
+
+
+}
+
+.form-label {
+
+	display: block;
+    	margin-top: 0em;
+	
+
+}
+
+
+.profile-edit-avatar{
+	top: 3%;
+	right: 10%;
+	position:absolute;
+	width:20%;
+	
+	
+}
+#edit-avatar{
+	width:100%;
+}
+#edit-optional{
+	margin-top:25%;
+}
+#profile-optional-info{
+	margin-top: 30%;
+	
+}
+#profile-edit-input{
+	width:150%;
+	border: 2px solid black;
+}
+
+
+
+.post-content {
+	width: 40%;
+	
+	margin: 0 auto;
+	
+	
+}
+
+.comment-box {
+width: 40%;
+	display:block;
+	margin: 0 auto;
+	margin-top: 100px;
+	
+}
+.input {
+	font-family: roboto;
+  background-color: #1ec3ff; /*cyan*/
+  border: none; 
+  border-radius:4px; /*redondeado*/
+  color: white; /*color de letra*/
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px; /*botones separados*/
+  /*Botones pegados: eliminas margen y pones float: left*/
+  cursor: pointer; /*icono que adquiere el raton al pasarle por encima*/
+}
+
+
+#comment-input {
+	border: 2px solid black;
+	width: 100%;
+}
+
+#input-upload-post{
+	width:50%;
+	border: 2px solid black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.login-form{
+	top: 20%;
+	width: 20%;
+	display:block;
+	left: 35%;
+	position:absolute;
+}
+
+
+#welcome-image{
+	width: 30%;
+	display:block;
+	left: 10%;
+}
+
+
+#not-registered-image{
+	width: 50%;
+	
+	top:10%;
+	right: 10px;
+}
+
+#not-registered{
+	width: 40%;
+	display:block;
+	margin:auto;
+	position:absolute;
+	right: -10%;
+	top: 10%;
+	
+}
+#register-gif{
+	display: block;
+	position:absolute;
+	left: 25%;
+	top: 40%;
+	width: 5%;
+}
+#register-gif1{
+	display: block;
+	position:absolute;
+	left: 40%;
+	top: 20%;
+	width: 10%;
+}
+#register-gif2{
+	display: block;
+	position:absolute;
+	right: 15%;
+	top: 40%;
+	width: 10%;
+}
+#register-gif3{
+	display: block;
+	position:absolute;
+	right: 15%;
+	top: 20%;
+	width: 10%;
+}
+#register-gif4{
+	display: block;
+	position:absolute;
+	left: 45%;
+	top: 0px;
+	width: 30%;
+}
+#register-gif5{
+	display: block;
+	position:absolute;
+	left: 45%;
+	top: 10%;
+	width: 5%;
+}
+#register-gif6{
+	display: block;
+	position:absolute;
+	left: 45%;
+	top: 40%;
+	width: 5%;
+}
+#register-gif7{
+	display: block;
+	position:absolute;
+	right: 20%;
+	top: 10%;
+	width: 5%;
+}
+
+
+.post-actions-buttons{
+	
+	position: absolute;
+	
+	width: 20%;
+	height: auto;
+
+	
+	left: 10%;
+	top: 20%;
+}
+
+.like-button {
+	width:20%;
+		
+
+}
+
+.post-report-button{
+	width: 20%;
+}
+
+.comment-report-button{
+	width: 7.5%;
+}
+
+.num-page {
+		text-align: center;
+}
+
+
+
+.comment-list{
+	
+	margin-top: 30px;
+	
+}
+
+.post-box {
+	
+	width: 90%;
+  	margin: 0 auto;
+  	
+}
+
+.reported-comments-box {
+	
+	
+	right:50%;
+}
+
+
+#admin-post-action {
+float:right;
+}
+#admin-comment-action {
+	
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+#edit-comment {
+	
+	
+	margin-left: 0px;
+	margin-top: 10px;
+}
+
+
+#ornament-image-upload {
+	position:absolute;
+	width: 20%;
+	right: 15%;	
+
+}
+
+
+#report-ornament-image {
+	position:absolute;
+	width: 20%;
+	right: 15%;	
+
+}
+
+#register-error {
+	position: absolute;
+	left: 5%;
+	top: 0px;
+}
+
+#welcome-image2{
+	
+	width: 40%;
+	display:block;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+#welcome-p {
+	position:absolute;
+	margin-left: 20%;
+	margin-right: 20%;
+	top: 5%;
+
+}
+
+#edit-post {
+	
+	position:absolute;
+	
+
+}
+
+#post-image{
+
+	width: 100%;
+	border: 2px solid black;
+}
+.register-form{
+	margin-top:0;
+	width:20%;
+}
+.report-form{
+	width:40%;
+}
+.user-list-image{
+
+	width: 20%;
+	border: 1px solid black;
+
+}
+.index-images{
+
+	max-width: 100%;
+	border: 2px solid black;
+}
+.comment-user-avatar{
+	
+	width:35px;
+	height:35px;
+	
+}
+#comment{
+	
+	background: #CFC4C4;
+	padding: 5%;
+	height: auto;
+	word-wrap: break-word;
+	
+}
+#reported-post{
+	border: 2px solid black;
+}
+#notFound-message{
+	text-align:center;
+}
+
+  .button-load-more{
+	  font-family: 'Lato', sans-serif;
+	  /*display:table;*/ /*inline-block;*/
+	  margin-bottom: 4px;
+	  /*margin: 4px 2px; /*botones separados*/
+	  /*Botones pegados: eliminas margen y pones float: left*/
+	  border: 1px solid rgba(0,0,0,0.2); /*none*/
+	  border-radius:4px; /*redondeado*/
+	  background-color: #1ec3ff;
+	  background: #1ec3ff;
+	  color: #333; /*white*/
+	  text-align: center;
+	  font-size: 16px;
+	  width: auto;
+	  padding: 6px 12px; /*15px 32px;*/
+	  cursor: pointer; /*icono que adquiere el raton al pasarle por encima*/
+  }
+
+  .button-load-more:hover{ /*cambio de estilo al pasarle por encima*/
+	  background-color: white;
+	  color: black;
+	  border: 2px solid #1ec3ff;
+  }
+
+  .button-load-more:disabled{
+	  opacity: 0.6;
+	  cursor: not-allowed;
+  }
+
+  .stackTrace {
+	  word-wrap: break-word;
+  }

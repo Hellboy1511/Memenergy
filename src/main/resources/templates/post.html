@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Memenergy! / {{title}}</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
+    <link href="/css/responsive.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/assets/ico/favicon.ico" type="image/x-icon">
+    <script src="/scripts.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+</head>
+
+<body id=layout>
+{{>header}}
+<div id="container">
+
+
+    {{#isLogged}}
+    <div class="post-actions-buttons">
+        <ul>
+            <li>
+
+
+                <img class="like-button" id="imgClickAndChange" src="{{like}}" onload="imageDetection();" onclick="createLike({{id}});"></li>
+            <li>Likes: <a href="/post/{{id}}/likes">{{likes}}</a></li>
+            </br>
+            <li><a href="/post/{{id}}/report"><img class="post-report-button" src="/assets/ico/report.svg"></a></li>
+            {{#isAdmin}}
+            <li><a href="/post/{{id}}/reports">Reports: {{reports}}</a></li>
+            {{/isAdmin}}
+        </ul>
+
+
+    </div>
+    {{/isLogged}}
+
+
+    <div class="post-content">
+        Posted by {{#hasUserCreator}}<a href="/user/{{#user}}{{username}}{{/user}}">{{#user}}{{username}}{{/user}}</a>{{/hasUserCreator}}{{#notHasUserCreator}} [deleted]{{/notHasUserCreator}} on {{#date}}{{dateToString}}{{/date}}
+        <h3 id="post-tile"><strong>{{title}}</strong></h3>
+        <img id="post-image" src="/api/post/{{id}}/image">
+        </br></br>
+        <p> {{description}}</p>
+        {{#isUserOwner}}
+        <div id="edit-post">
+
+            <button class="button-action" onclick="window.location.href='/post/{{id}}/edit'">Edit</button>
+
+        </div>
+        {{/isUserOwner}}
+
+    </div>
+
+    </br>
+
+
+    <div class="comment-box">
+        <div class="comment-create">
+            {{#isLogged}}
+            <script src='https://cdn.tiny.cloud/1/aaqphl83jiidx836ajzwwewt80t1vw9h2bhr13wusx5ftwx4/tinymce/5/tinymce.min.js' referrerpolicy="origin">
+            </script>
+            <script>
+                tinymce.init({
+                    selector: '#mytextarea',
+                    plugins: 'advcode',
+                    toolbar: 'code'
+                });
+            </script>
+            <form action="/post/{{id}}" class="form" id="comment-form" method="post">
+
+
+                </br>
+                <div class="form-fieldset">
+                    <div class="form-label" name='text'>
+                        <textarea name="text" placeholder="Write a comment" rows=5 cols=40 id="mytextarea" maxlength="1024"></textarea>
+
+                    </div>
+                </div>
+                <input type="hidden" name="_csrf" value="{{token}}">
+                <input class="button-action" type="submit" value="Post">
+            </form>
+            {{/isLogged}}
+            </br>
+        </div>
+
+        <div class="comment-list">
+            <h3>Comments:</h3>
+            </br>
+            {{#comments}}
+            <ul id="comment">
+
+                <li>{{#hasUserCreator}}<img class="comment-user-avatar" src="/api/user/{{#userCreator}}{{username}}{{/userCreator}}/image">{{/hasUserCreator}}{{#notHasUserCreator}}<img class="comment-user-avatar" src="/assets/ico/deletedUser.jpg">{{/notHasUserCreator}}
+                    {{#hasUserCreator}}<a href="/user/{{#userCreator}}{{username}}{{/userCreator}}">{{#userCreator}}{{username}}{{/userCreator}}</a>{{/hasUserCreator}}{{#notHasUserCreator}}[deleted]{{/notHasUserCreator}} {{#date}}{{dateToString}}{{/date}}
+                    {{#isLogged}}
+                    <a href="/comment/{{id}}/report"><img class="comment-report-button"
+                                                          src="/assets/ico/report.svg"></a>
+                    {{/isLogged}}
+                    {{#isAdmin}}
+                    <a href="/comment/{{id}}/reports">Reports: {{reportCounter}}</a></li>
+                    {{/isAdmin}}
+                </br>
+                <li>{{{text}}}</li>
+                </br></br>
+
+
+            </ul>
+            {{/comments}}
+        </div>
+
+    </div>
+
+
+    <div class="num-page">
+
+        <td>
+        <th>{{#firstPage}}<a href="{{previousPage}}">{{/firstPage}} Previous page </a></th>
+        <th> {{page}}</th>
+        <th> {{#lastPage}}<a href="{{nextPage}}">{{/lastPage}} Next page </a></th>
+        </td>
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+</html>

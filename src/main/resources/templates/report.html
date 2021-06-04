@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Memenergy / Report</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
+    <link href="/css/responsive.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/assets/ico/favicon.ico" type="image/x-icon">
+</head>
+</head>
+
+<body id="layout">
+{{>header}}
+
+
+<div class="profile-container" id="container">
+
+    <div id="report-ornament">
+        <img id="report-ornament-image"
+             src="https://i.pinimg.com/originals/13/e7/06/13e706e63d9e78a6cfcf38cba7a319d6.jpg">
+    </div>
+
+    <div class="report-form">
+        <form action="/{{tipo}}/{{id}}/report" class="form" method="post">
+
+            <div class="form-fieldset">
+                <label class="form-label">Reason </label>
+                <textarea name='reason' rows=5 cols=40 id="profile-edit-input" maxlength="1024"></textarea>
+
+            </div>
+            </br>
+
+            <input type="hidden" name="_csrf" value="{{token}}">
+            <input class="button-action" type="submit" value="Report">
+        </form>
+    </div>
+
+
+</div>
+</body>
+</html>
